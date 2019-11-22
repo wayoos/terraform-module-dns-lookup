@@ -4,6 +4,7 @@
 set -e
 
 hostname=$1
-ip=`dig +short $hostname`
+dnsServer=$2
+ip=`dig A +short $hostname @$dnsServer`
 
 echo "{\"ip\":\"$ip\"}"
